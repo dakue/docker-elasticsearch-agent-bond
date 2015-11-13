@@ -22,7 +22,7 @@ RUN echo '' >> /usr/share/elasticsearch/bin/elasticsearch.in.sh && \
 
 RUN set -x && \
   cp /etc/elasticsearch/elasticsearch.yml /usr/share/elasticsearch/config && \
-  chown root:elasticsearch /usr/share/elasticsearch/config/elasticsearch && \
+  chown root:elasticsearch /usr/share/elasticsearch/config/elasticsearch.yml && \
   chmod 640 /usr/share/elasticsearch/config/elasticsearch.yml && \
   plugin install mobz/elasticsearch-head
 
