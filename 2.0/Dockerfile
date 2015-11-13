@@ -23,6 +23,6 @@ RUN echo '' >> /usr/share/elasticsearch/bin/elasticsearch.in.sh && \
 RUN set -x && \
   cp /etc/elasticsearch/elasticsearch.yml /usr/share/elasticsearch/config && \
   sed -i 's|#discovery.zen.ping.multicast.enabled: false|discovery.zen.ping.multicast.enabled: false|g' /usr/share/elasticsearch/config/elasticsearch.yml && \
-  plugin -install mobz/elasticsearch-head
+  plugin install mobz/elasticsearch-head
 
 EXPOSE 8778 9779
