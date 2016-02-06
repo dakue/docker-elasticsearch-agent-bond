@@ -12,11 +12,11 @@ do
     echo "INFO: waiting for Elasticsearch to be available"
     ( i=0; until nc -w 1 -q 0 localhost 9200; do echo $i; test $i -ge 5 && break; sleep 5; ((i++)); done ) || exit 0
     echo "INFO: $VERSION Elasticsearch output"
-    curl http://localhost:9200
+    curl -sS http://localhost:9200
     echo "INFO: $VERSION Jolokia output"
-    curl http://localhost:8778/jolokia/version
+    curl -sS http://localhost:8778/jolokia/version
     echo "INFO: $VERSION JMX exporter output"
-    curl http://localhost:9779/metrics | grep -v -E "HELP|TYPE"
+    curl -sS http://localhost:9779/metrics | grep -v -E "HELP|TYPE"
     echo "INFO: stopping Elasticsearch"
     docker stop $VERSION_NAME
 done
