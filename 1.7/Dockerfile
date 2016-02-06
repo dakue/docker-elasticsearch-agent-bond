@@ -1,7 +1,7 @@
 FROM elasticsearch:1.7
 MAINTAINER Daniel Kühne <dkhmailto@googlemail.com>
 
-ENV AB_VERSION="0.1.1" \
+ENV AB_VERSION="0.1.2" \
   AB_HOME="/opt/agent-bond"
 
 RUN set -x && \
