@@ -5,7 +5,7 @@ ES_VERSIONS="1.7 2.0 2.1 2.2"
 echo "$(date --rfc-3339=seconds) INFO: starting to test"
 for VERSION in $ES_VERSIONS
 do
-    VERSION_NAME="es-$(echo $VERSION | sed 's|\.|-|s')"
+    VERSION_NAME="es-$(echo $VERSION | sed 's|\.|-|g')"
     echo "INFO: testing Elasticsearch version $VERSION"
     docker run -d -p 9200:9200 -p 8778:8778 -p 9779:9779 --name $VERSION_NAME dakue/elasticsearch-agent-bond:$VERSION
     ( i=0; until nc -w 1 -q 0 localhost 9200; do echo $i; test $i -ge 5 && break; sleep 5; ((i++)); done ) || exit 0
