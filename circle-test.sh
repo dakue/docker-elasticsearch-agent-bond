@@ -21,3 +21,4 @@ do
     docker stop $VERSION_NAME
 done
 echo "$(date --rfc-339=seconds) INFO: tests finished"
+touch .passed
