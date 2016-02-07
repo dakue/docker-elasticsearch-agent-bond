@@ -6,7 +6,7 @@ ENV AB_VERSION="0.1.2" \
 
 RUN set -x && \
   apt-get update && \
-  apt-get install curl ca-certificates && \
+  apt-get install -y curl ca-certificates && \
   curl -sSL https://raw.githubusercontent.com/fabric8io/agent-bond/master/fish-pepper/agent-bond/fp-files/agent-bond-opts  -o /usr/local/bin/agent-bond-opts && \
   sed -i 's|/bin/sh|/bin/bash|g' /usr/local/bin/agent-bond-opts && \
   chmod +x /usr/local/bin/agent-bond-opts && \
