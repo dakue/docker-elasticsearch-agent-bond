@@ -17,4 +17,4 @@ dependencies:
 test:
   override:
     - ./circle-test.sh
-    - if  [ ! -f .passes ]; then docker ps -a | sed -n '2{p;q}' | awk '{ print $1 }' | xargs docker logs; fi;
+    - if  [ ! -f .passed ]; then docker ps -a | sed -n '2{p;q}' | awk '{ print $1 }' | xargs docker logs; fi;
