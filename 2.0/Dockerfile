@@ -17,8 +17,8 @@ RUN set -x && \
   rm -rf /var/lib/apt/lists
 
 RUN echo '' >> /usr/share/elasticsearch/bin/elasticsearch.in.sh && \ 
-  echo '# Agent Bond' >> /usr/share/elasticsearch/bin/elasticsearch.in.sh && \ 
-  echo 'JAVA_OPTS="$(agent-bond-opts) $JAVA_OPTS"' >> /usr/share/elasticsearch/bin/elasticsearch.in.sh
+  echo '# Agent Bond and more' >> /usr/share/elasticsearch/bin/elasticsearch.in.sh && \ 
+  echo 'JAVA_OPTS="$(agent-bond-opts) -Dsecurity.manager.enabled=false $JAVA_OPTS"' >> /usr/share/elasticsearch/bin/elasticsearch.in.sh
 
 RUN set -x && \
   cp /etc/elasticsearch/elasticsearch.yml /usr/share/elasticsearch/config && \
